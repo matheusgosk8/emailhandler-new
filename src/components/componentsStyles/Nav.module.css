@@ -1,0 +1,90 @@
+.nav{
+    width: 100%;
+    height: fit-content;
+    background: transparent;
+}
+
+.navLabel{
+    display: none;
+    
+}
+
+.mobNav{
+    display: none;
+}
+
+.navigation{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    padding: .5em 0;
+    position: relative;
+}
+
+@media (max-width: 900px) {
+
+    .nav{
+        margin-bottom: 2em;
+        color: white;
+        z-index: 30;   
+        background: black;    
+        height: 20px; 
+    }
+
+    .navIcon{
+       
+        font-size: 40px;
+        
+    }
+
+    .navLabel{
+       position: fixed;
+        top: 10px;
+        left: 5px;
+        display: block;
+        z-index: 50;
+    }
+
+    .navigation{
+        flex-direction: column;
+       
+        z-index: 4;
+        min-width: 50vw;
+        font-size: 1.5em;
+        padding: 1em;
+        padding-top: 2em;
+       
+        
+    }
+
+    .navWrapper{
+        position: fixed;
+        left: 0;
+        top: 0;
+        display: grid;
+        grid-template-columns: 0fr;
+        transition: grid-template-columns 500ms ease;
+        background-color: black;
+        z-index: 40;
+        
+        
+    
+      
+    }
+
+    .navWrapper div{
+        overflow: hidden;
+    }
+
+    
+    .mobNav:checked ~  .navWrapper{
+        grid-template-columns: 1fr;
+        border-right: 1px solid white;
+        border-bottom: 1px solid white;
+        border-radius: 0 0 .5em 0;
+    }
+
+    
+}
