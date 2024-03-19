@@ -19,10 +19,10 @@ const Nav = (props: Props) => {
       
         <div>
           <div className={styles.navigation}>
-              <Link href='/' className='navLink'> App       </Link>
-              <Link href='/' className='navLink'> Docs      </Link>
-              <Link href='/' className='navLink'> Registrar </Link>
-              <Link href='/' className='navLink'> Entrar    </Link>
+              <Link href='/test' className='navLink'> App       </Link>
+              <Link href='/test' className='navLink'> Docs      </Link>
+              <Link href='/test' className='navLink'> Registrar </Link>
+              <Link href='/test' className='navLink'> Entrar    </Link>
           </div>
         </div>
 

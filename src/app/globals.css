@@ -112,3 +112,38 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 33%));
   }
+
+  .loadingPage{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .loadingState{
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5em;
+    
+}
+
+@keyframes spiner {
+    to{
+        transform: rotate(360deg);
+    }
+    
+}
+
+.spiner{
+    width: 125px;
+    height: 125px;
+    border-radius: 100%;
+    border-bottom: 5px solid black;
+    animation: spiner 1s  linear infinite  ;
+
+}

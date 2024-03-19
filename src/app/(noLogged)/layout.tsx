@@ -2,7 +2,9 @@ import Footer from '@/components/Footer'
 import Nav from '@/components/Nav'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { Suspense } from 'react'
 import '../globals.css'
+import Loading from './loading'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,10 +21,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <Suspense fallback ={<Loading/>}>
       <Nav/>
         {children}
       <Footer/>
-        
+        </Suspense>
       </body>
     </html>
   )

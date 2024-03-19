@@ -1,12 +1,23 @@
+'use client'
+
 import styles from './componentsStyles/Home.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, {useEffect, useRef} from 'react'
+
+import {motion, useInView, useTransform} from 'framer-motion'
+
 
 
 type Props = {}
 
 const HomeThirdComponent = (props: Props) => {
+
+  const itemInView = useRef(null);
+
+  const isInView = useInView(itemInView, {margin: "-50% 0px -50% 0px"});
+  
+
   return (
     <div className={styles.thirdComponent}>
 
@@ -16,11 +27,23 @@ const HomeThirdComponent = (props: Props) => {
 
       <div className={styles.sliderSection}>
 
-        <div className={styles.slider}>
+        <div className={styles.slider} ref ={itemInView}>
 
-            < img src ='/images/gmail.png'   alt = '' />
-            < img src ='/images/outlook2.png' alt = '' />
-            < img src ='/images/yahoo.png'   alt = '' />
+            < motion.img
+            initial={{x: '50%', opacity: 0}}
+            animate={ isInView ? {x: 0, opacity: 1}:{x: '50%', opacity: 0}}
+            transition={{duration: 0.5}}
+            src ='/images/gmail.png'   alt = '' />
+            < motion.img 
+            initial={{opacity: 0}}
+            animate={ isInView ? {opacity: 1}:{opacity: 0}}
+            transition={{duration: 0.5}}
+            src ='/images/outlook2.png' alt = '' />
+            < motion.img
+            initial={{x: '50%', opacity: 0}}
+            animate={ isInView ? {x: 0, opacity: 1}:{x: '-50%', opacity: 0}}
+            transition={{duration: 0.5}}
+            src ='/images/yahoo.png'   alt = '' />
 
 
         </div>

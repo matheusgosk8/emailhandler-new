@@ -1,6 +1,8 @@
-import React from 'react'
+'use client';
+import React, {useRef} from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import {hover3d} from '../utils/hover3d'
 
 type Props = {}
 
@@ -9,8 +11,23 @@ const HomeFirstComponent = (props: Props) => {
 
     const fs1 =  'lg';
 
+    const headerRef = useRef<HTMLDivElement>(null);
+
+   const hoverEffect = hover3d(headerRef, {
+        x:30,
+        y:-40, 
+        z:40
+    });
+    
+   const hoverImage = hover3d(headerRef, {
+        x:50,
+        y:-5, 
+        z:11
+    });
+
   return (
-    <div className='
+    <div 
+    className='
     sm:h-lvh w-dvw flex flex-col overflow-x-hidden
     
     '>
@@ -18,9 +35,10 @@ const HomeFirstComponent = (props: Props) => {
         <div className='
         sm:h-full w-full flex relative overflow-hidden
         sm:flex-row sm:align-middle sm:justify-center sm:gap-10 sm:pb-5
-        flex-col justify-around align-middle items-center h-dvh
-        
-        '>
+        flex-col justify-around align-middle items-center h-dvh  
+        '
+        ref={headerRef}
+        >
             <div
             className='sm:hidden pt-10 flex flex-col w-full justify-start items-start gap-2 pl-5 -z-10'
             >
@@ -65,15 +83,24 @@ const HomeFirstComponent = (props: Props) => {
         
             <div className='
            object-fill  
-           sm:relative sm:w-72 sm:h-full sm:block
+           sm:relative sm:w-72 sm:h-full sm:block sm:rounded-3xl
            absolute w-full h-full top-0 hidden
            '  
+           style={{
+                transform: hoverEffect.transform,
+               
+
+           }}
             >
                 <Image src='/images/pc1.png'
                 fill = {true}
                 alt = ''
                 className='absolute -z-10 brightness-50 sm:rounded-3xl
                 '
+                style={{
+                    transform: hoverImage.transform,
+                    boxShadow: '0 0 5px 5px black'
+                }}
                 />
 
                 <div className='
